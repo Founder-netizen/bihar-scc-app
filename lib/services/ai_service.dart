@@ -1,17 +1,12 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:http/browser_client.dart';
 
 class AiService {
   static const String _baseUrl = 'https://api.groq.com/openai/v1/chat/completions';
   final _storage = const FlutterSecureStorage();
   
   http.Client get _client {
-    if (kIsWeb) {
-      return BrowserClient()..withCredentials = false;
-    }
     return http.Client();
   }
 

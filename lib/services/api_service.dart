@@ -1,15 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:flutter/foundation.dart' show kIsWeb, debugPrint;
-import 'package:http/browser_client.dart';
+import 'package:flutter/foundation.dart' show debugPrint;
 
 class ApiService {
   static const String baseUrl = 'https://www.bsefcl.bihar.gov.in/api/';
 
   http.Client get _client {
-    if (kIsWeb) {
-      return BrowserClient()..withCredentials = true;
-    }
     return http.Client();
   }
 
