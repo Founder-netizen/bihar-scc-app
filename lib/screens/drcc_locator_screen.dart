@@ -362,9 +362,9 @@ class _DrccLocatorScreenState extends State<DrccLocatorScreen> {
   Future<void> _launchTurnByTurn(LatLng location, String mapType) async {
     Uri url;
     if (mapType == 'google') {
-      url = Uri.parse('https://www.google.com/maps/dir/?api=1&destination=\${location.latitude},\${location.longitude}');
+      url = Uri.parse('https://www.google.com/maps/dir/?api=1&destination=${location.latitude},${location.longitude}');
     } else {
-      url = Uri.parse('http://maps.apple.com/?daddr=\${location.latitude},\${location.longitude}');
+      url = Uri.parse('http://maps.apple.com/?daddr=${location.latitude},${location.longitude}');
     }
 
     if (await canLaunchUrl(url)) {
